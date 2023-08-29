@@ -10,9 +10,9 @@ import { environment } from 'src/environments/environment';
 })
 export class TaskService {
 
-  private taskUrl = environment.taskUrl
+  private taskUrl = environment.apiUrl
 
-  // injecting httpclient in the userservice
+  // injecting httpclient in the Taskservice
   constructor( private http :HttpClient) { }
 
   // get users

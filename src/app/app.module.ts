@@ -4,24 +4,26 @@ import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { UsersComponent } from './components/users/users.component';
-import { UserService } from './services/user.service';
 import { TasksComponent } from './components/tasks/tasks.component';
-
+import { TaskService } from './services/task.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
-    UsersComponent,
-    TasksComponent
+    TasksComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, 
-    HttpClientModule,   
+    HttpClientModule, BrowserAnimationsModule,   
   ],
   providers: [
-    UserService,    
+    TaskService    
   ],
   bootstrap: [AppComponent]
 })
