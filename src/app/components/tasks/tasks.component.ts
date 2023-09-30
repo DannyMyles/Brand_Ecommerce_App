@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TaskService } from 'src/app/services/task.service';
+import { ProductService } from 'src/app/services/product.service';
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
@@ -7,14 +7,14 @@ import { TaskService } from 'src/app/services/task.service';
 })
 export class TasksComponent implements OnInit {
 
-  constructor(private taskService : TaskService) { }
+  constructor(private productService : ProductService) { }
 
   ngOnInit(): void {
     this.getTasks()
   }
 
   getTasks = ():void =>{
-    this.taskService.getTasks().subscribe((data : any)=>{
+    this.productService.getProducts().subscribe((data : any)=>{
       console.log("data ni gani", data);
     })
   } 

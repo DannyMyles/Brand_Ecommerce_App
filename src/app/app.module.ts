@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { TasksComponent } from './components/tasks/tasks.component';
-import { TaskService } from './services/task.service';
+import { ProductService } from './services/product.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -23,7 +23,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpClientModule, BrowserAnimationsModule,   
   ],
   providers: [
-    TaskService    
+    ProductService    
   ],
   bootstrap: [AppComponent]
 })
