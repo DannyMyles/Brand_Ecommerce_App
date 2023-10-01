@@ -10,27 +10,27 @@ import { environment } from 'src/environments/environment';
 })
 export class ProductService {
 
-  private ProductUrl = environment.apiUrl
+  private productUrl = environment.apiUrl
 
   // injecting httpclient in the Productservice
   constructor( private http :HttpClient) { }
 
   // get users
   getProducts():Observable<Product[]>{
-    return this.http.get<Product[]>(`${this.ProductUrl}/Products`);
+    return this.http.get<Product[]>(`${this.productUrl}/Products`);
   }
 
   // get single user
   getProduct():Observable<Product>{
-    return this.http.get<Product>(`${this.ProductUrl}/Products/1`)
+    return this.http.get<Product>(`${this.productUrl}/Products/1`)
   }
 
   // create a user (We pass in the user as the payload)
   createUser(user: Product):Observable<Product>{
-   return this.http.post<Product>(`${this.ProductUrl}/users`, user)
+   return this.http.post<Product>(`${this.productUrl}/users`, user)
   }
   // When updating a user we pass in the whole request body including the id
   // updateUser(user: Product):Observable<Product>{
-  //   // return this.http.put<Product>(`${this.ProductUrl}/users/${user.id}`, user)
+  //   // return this.http.put<Product>(`${this.productUrl}/users/${user.id}`, user)
   //  }
 }

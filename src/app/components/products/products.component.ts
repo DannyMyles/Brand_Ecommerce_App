@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 @Component({
-  selector: 'app-tasks',
-  templateUrl: './tasks.component.html',
-  styleUrls: ['./tasks.component.css']
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.css']
 })
-export class TasksComponent implements OnInit {
+export class ProductsComponent implements OnInit {
 
-  constructor(private productService : ProductService) { }
+  constructor(private productService :ProductService) { }
 
   ngOnInit(): void {
-    this.getTasks()
   }
 
   getTasks = ():void =>{
@@ -18,5 +17,4 @@ export class TasksComponent implements OnInit {
       console.log("data ni gani", data);
     })
   } 
-
 }
