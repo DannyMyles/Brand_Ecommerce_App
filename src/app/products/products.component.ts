@@ -8,6 +8,14 @@ import { ProductService } from '../services/product.service';
 })
 export class ProductsComponent implements OnInit {
 
+  listHeaders: string[] = [
+    "All category",
+    "Hot offers",
+    "Gift boxes",
+    "Projects",
+    "Menu item",
+    "Help"
+  ];
   constructor(private productService :ProductService) { }
 
   ngOnInit(): void {

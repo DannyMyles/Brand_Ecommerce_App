@@ -10,13 +10,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { OrdersModule } from './orders/orders.module';
-import { ProductsModule } from './products/products.module'; 
+import { ProductsModule } from './products/products.module';
+import { FooterComponent } from './components/footer/footer.component'; 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,8 +26,7 @@ import { ProductsModule } from './products/products.module';
     FormsModule, 
     HttpClientModule,
     BrowserAnimationsModule,
-    OrdersModule,
-    ProductsModule 
+    OrdersModule
   ],
   providers: [
     ProductService,

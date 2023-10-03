@@ -15,7 +15,7 @@ import { ViewComponent } from './view/view.component';
     AddComponent,
     EditComponent,
     DeleteComponent,
-    ViewComponent
+    ViewComponent,
   ],
   imports: [
     CommonModule,

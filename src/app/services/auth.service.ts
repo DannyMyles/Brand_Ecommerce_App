@@ -29,7 +29,7 @@ export class AuthService {
   }
   // User login
   login (username: string, email: string, password: string):Observable<User>{
-    const loginDate =  { username, email , password}
+    const loginDate =  { username, email , password }
     return this.http.post<User>(`${this.apiUrl}/login`,loginDate).pipe(
       map((response:any) =>{
         console.log("response", response);
