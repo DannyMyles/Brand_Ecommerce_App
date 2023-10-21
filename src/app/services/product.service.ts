@@ -16,8 +16,8 @@ export class ProductService {
   constructor( private http :HttpClient) { }
 
   // get users
-  getProducts():Observable<Product[]>{
-    return this.http.get<Product[]>(`${this.apiUrl}/products`);
+  getProducts():Observable<{products: Product[]}>{
+    return this.http.get<{products: Product[]}>(`${this.apiUrl}/products`);
   }
 
   // get single user

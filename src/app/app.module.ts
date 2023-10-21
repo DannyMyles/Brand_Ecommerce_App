@@ -9,9 +9,12 @@ import { OrdersService } from './services/orders.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { OrdersModule } from './orders/orders.module';
-import { ProductsModule } from './products/products.module';
-import { FooterComponent } from './components/footer/footer.component'; 
+import { FooterComponent } from './components/footer/footer.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProductsComponent } from './components/products/products.component';
+import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { OrderDetailsComponent } from './components/orders/order-details/order-details.component'; 
 
 @NgModule({
   declarations: [
@@ -19,19 +22,27 @@ import { FooterComponent } from './components/footer/footer.component';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
+    NavbarComponent,
+    ProductsComponent,
+    ProductDetailsComponent,
+    OrdersComponent,
+    OrderDetailsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule, 
     HttpClientModule,
-    BrowserAnimationsModule,
-    OrdersModule
+    BrowserAnimationsModule
   ],
   providers: [
     ProductService,
     OrdersService    
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[
+    NavbarComponent,
+    FooterComponent
+  ],
 })
 export class AppModule { }
