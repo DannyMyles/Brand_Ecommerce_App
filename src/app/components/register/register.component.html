@@ -1,1 +1,46 @@
-<p>register works!</p>
+<div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="bg-white p-8 rounded-lg shadow-md w-96">
+        <h1 class="text-2xl font-semibold text-center mb-6">Register</h1>
+        <form>
+            <div class="mb-4">
+                <label for="username" class="block text-gray-600 text-sm font-medium">Username</label>
+                <input [(ngModel)]="username" type="text" id="username" name="username" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" placeholder="Your Username" />
+            </div>
+            <div class="mb-4">
+                <label for="email" class="block text-gray-600 text-sm font-medium">Email</label>
+                <input [(ngModel)]="email" type="email" id="email" name="email" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" placeholder="Your Email" />
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-gray-600 text-sm font-medium">Password</label>
+                <input [(ngModel)]="password" type="password" id="password" name="password" class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500" placeholder="Password" />
+            </div>
+            <div class="mb-4">
+                <label for="phone" class="block text-gray-600 text-sm font-medium">Phone</label>
+                <input [(ngModel)]="phone" type="text" id="phone" class=" w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 " placeholder="Phone Number " />
+            </div>
+            <div class="mb-4 ">
+                <label for="gender " class="block text-gray-600 text-sm font-medium ">Gender</label>
+                <select [(ngModel)]="gender" id="gender" name="gender " class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 ">
+                <option value="male ">Male</option>
+                <option value="female ">Female</option>
+                <option value="other ">Other</option>
+              </select>
+            </div>
+            <div class="mb-4 ">
+                <label for="fullName " class="block text-gray-600 text-sm font-medium ">Full Name</label>
+                <input [(ngModel)]="fullName" type="text " id="fullName " name="fullName " class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 " placeholder="Your Full Name " />
+            </div>
+            <div class="mb-4 ">
+                <label for="blacklisted " class="block text-gray-600 text-sm font-medium ">Blacklisted</label>
+                <input [(ngModel)]="blacklisted" type="checkbox " id="blacklisted " name="blacklisted " class="form-checkbox h-5 w-5 text-blue-600 " />
+            </div>
+            <div class="mb-4 ">
+                <label for="enableCampaign " class="block text-gray-600 text-sm font-medium ">Enable Campaign</label>
+                <input [(ngModel)]="enableCampaign" type="checkbox " id="enableCampaign " name="enableCampaign " class="form-checkbox h-5 w-5 text-blue-600 " />
+            </div>
+            <button (click)="saveRegister()" type="submit " class="w-full py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none ">
+              Register
+            </button>
+        </form>
+    </div>
+</div>
