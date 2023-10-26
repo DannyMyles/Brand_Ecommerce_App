@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -15,13 +16,10 @@ export class RegisterComponent implements OnInit {
   gender: string= '';
   blacklisted:boolean = false;
   enableCampaign: boolean = true;
-  constructor(private authService : AuthService) { }
+  isAdmin: boolean = false
+  constructor(private authService : AuthService, private router: Router) { }
 
-  ngOnInit(): void {
-  }
-
-  register(){
-    let userData = {
+  registerData = {
       username: this.username,
       email:this.email,
       password:this.password,
@@ -29,18 +27,20 @@ export class RegisterComponent implements OnInit {
       gender:this.gender,
       fullName:this.fullName,
       blacklisted: this.blacklisted,
-      enableCampaign: this.enableCampaign
+      enableCampaign: this.enableCampaign,
+      isAdmin: this.isAdmin
+  }
+  ngOnInit(): void {
+  }
 
-    }
-    this.authService.register(userData).subscribe((response)=>{
+  registerUser(){
+    this.authService.register(this.registerData).subscribe((response)=>{
       console.log('Registration successful:', response);
+      // this.router.navigate(['/dashboard'])
     }, (error)=>{
       console.log('Error while registration: ', error);
     }
     
     )
-  }
-  saveRegister(){
-
   }
 }

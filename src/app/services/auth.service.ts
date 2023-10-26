@@ -15,30 +15,13 @@ export class AuthService {
 
   constructor(private http : HttpClient) { }
   
-  // User registration
+  // User registration HTTP Request
   register(userData: User): Observable<User>{
-    return this.http.post<User>(`${this.apiUrl}/signup`, userData).pipe(
-      map((response:any) =>{
-        console.log('sign up', response)
-        return response
-      }),
-      catchError(err =>{
-        return throwError(err)
-      })
-    )
+    return this.http.post<User>(`${this.apiUrl}/auth/signup`, userData)
   }
-  // User login
-  login (username: string, email: string, password: string):Observable<User>{
-    const loginDate =  { username, email , password }
-    return this.http.post<User>(`${this.apiUrl}/login`,loginDate).pipe(
-      map((response:any) =>{
-        console.log("response", response);
-        return response
-      }),
-      catchError(err =>{
-        return throwError(err)
-      })
-    )
+  // User login HTTP Request
+  login (loginData:User):Observable<{token: string}>{
+    return this.http.post<{token: string}>(`${this.apiUrl}/auth/login`,loginData)
   }
 
   // Method to store the token in local storage

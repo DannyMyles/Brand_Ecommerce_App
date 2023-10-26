@@ -15,6 +15,8 @@ import { ProductsComponent } from './components/products/products.component';
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { OrderDetailsComponent } from './components/orders/order-details/order-details.component'; 
+import { AuthService } from './services/auth.service';
+import { AuthGuard } from './auth.guard';
 
 @NgModule({
   declarations: [
@@ -36,8 +38,10 @@ import { OrderDetailsComponent } from './components/orders/order-details/order-d
     BrowserAnimationsModule
   ],
   providers: [
+    AuthService,
     ProductService,
-    OrdersService    
+    OrdersService,
+    AuthGuard    
   ],
   bootstrap: [AppComponent],
   exports:[
