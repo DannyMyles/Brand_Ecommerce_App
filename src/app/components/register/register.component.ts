@@ -8,15 +8,15 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  username: string ='';
-  email: string = '';
-  password: string= '';
-  phone: string= '';
-  fullName: string= '';
-  gender: string= '';
-  blacklisted:boolean = false;
-  enableCampaign: boolean = true;
-  isAdmin: boolean = false
+  username  ='';
+  email  = '';
+  password = '';
+  phone = '';
+  fullName = '';
+  gender = '';
+  blacklisted = false;
+  enableCampaign  = true;
+  isAdmin  = false
   constructor(private authService : AuthService, private router: Router) { }
 
   registerData = {

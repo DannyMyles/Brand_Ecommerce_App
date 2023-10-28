@@ -10,7 +10,7 @@ import { catchError, map } from 'rxjs/operators';
 export class AuthService {
 
   private apiUrl = environment.apiUrl;
-  private storageKey = 'authToken';
+  private storageKey = 'token';
 
 
   constructor(private http : HttpClient) { }
@@ -20,7 +20,7 @@ export class AuthService {
     return this.http.post<User>(`${this.apiUrl}/auth/signup`, userData)
   }
   // User login HTTP Request
-  login (loginData:User):Observable<{token: string}>{
+  login (loginData: User):Observable<{token: string}>{
     return this.http.post<{token: string}>(`${this.apiUrl}/auth/login`,loginData)
   }
 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +17,7 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { OrderDetailsComponent } from './components/orders/order-details/order-details.component'; 
 import { AuthService } from './services/auth.service';
 import { AuthGuard } from './auth.guard';
+import { LoggingInterceptor } from './logging.interceptor';
 
 @NgModule({
   declarations: [
@@ -33,20 +34,19 @@ import { AuthGuard } from './auth.guard';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, 
+    FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [
     AuthService,
     ProductService,
     OrdersService,
-    AuthGuard    
+    AuthGuard,
+    // Adding the intercepter in the request headers
+    { provide: HTTP_INTERCEPTORS, useClass: LoggingInterceptor, multi: true },
   ],
   bootstrap: [AppComponent],
-  exports:[
-    NavbarComponent,
-    FooterComponent
-  ],
+  exports: [NavbarComponent, FooterComponent],
 })
-export class AppModule { }
+export class AppModule {}

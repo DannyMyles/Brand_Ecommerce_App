@@ -8,22 +8,24 @@ import { User } from 'src/app/models/userModel';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  email: string = '';
-  password: string = '';
+  email = '';
+  password = '';
 
-  loginData: User = {
-    email: this.email,
-    password: this.password
-  }
+  // loginData: User = {
+  //   email: this.email,
+  //   password: this.password
+  // }
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
   loginUser() {
-    this.authService.login(this.loginData).subscribe((response) => {
+    this.authService.login({email: this.email, password: this.password}).subscribe((response) => {
       console.log('User', response);
-      // store user in the local storage
-      localStorage.setItem('token', response.token);
-      this.router.navigate(['/dashboard'])
+      // store user in the local storage setAuthToken
+      // localStorage.setItem('token', response.token);
+      this.authService.setAuthToken(response.token)
+
+      this.router.navigate(['/products'])
 
     }, (error)=>{
       console.log("Error occured", error)
