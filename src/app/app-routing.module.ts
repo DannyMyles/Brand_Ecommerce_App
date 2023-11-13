@@ -5,11 +5,13 @@ import { ProductsComponent } from './components/products/products.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './auth.guard';
+import { OrdersComponent } from './components/orders/orders.component';
 
 const routes: Routes = [
   // { path: '', component: NavbarComponent },
+  {path: "" , component: LoginComponent},
   {path: 'products', component: ProductsComponent, canActivate: [AuthGuard]},
-  {path: "login" , component: LoginComponent},
+  {path: 'orders', component: OrdersComponent, canActivate: [AuthGuard]},
   {path: "regiter" , component: RegisterComponent, pathMatch: 'full'}
 
 ];

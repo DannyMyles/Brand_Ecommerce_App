@@ -16,7 +16,10 @@ export class LoggingInterceptor implements HttpInterceptor {
   //  Basically cloaning the request then adding the authorization header
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     const localToken = localStorage.getItem('token')
-    request= request.clone({headers: request.headers.set("Authorization", 'bearer' + localToken)})
+    request = request.clone({ headers: request.headers.set("Authorization", 'Bearer ' + localToken)
+    .set("Access-Control-Allow-Headers", "*")
+    .set("Access-Control-Allow-Origin", "*")
+    .set("content-type", 'application/json') });
     return next.handle(request);
   }
 }

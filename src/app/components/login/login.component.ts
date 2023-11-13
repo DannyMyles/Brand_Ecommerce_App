@@ -20,9 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {}
   loginUser() {
     this.authService.login({email: this.email, password: this.password}).subscribe((response) => {
-      console.log('User', response);
-      // store user in the local storage setAuthToken
-      // localStorage.setItem('token', response.token);
+      // store user in the local storage
       this.authService.setAuthToken(response.token)
 
       this.router.navigate(['/products'])
